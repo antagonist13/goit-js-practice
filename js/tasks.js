@@ -63,14 +63,40 @@
 // Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
 // Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 
-String.prototype.toJadenCase = function () {
-   return this.split(' ').map( item => item[0].toUpperCase() + item.slice(1)).join(' ')
-};
+// String.prototype.toJadenCase = function () {
+//    return this.split(' ').map( item => item[0].toUpperCase() + item.slice(1)).join(' ')
+// };
 
-var str = "How can mirrors be real if our eyes aren't real";
-console.log(str.toJadenCase());
+// var str = "How can mirrors be real if our eyes aren't real";
+// console.log(str.toJadenCase());
 
 
 // String.prototype.toJadenCase = function() {
 //   return this.split(' ').map(item => item[0].toUpperCase() + item.slice(1)).join(' ')
 // };
+
+function stonePick(arr) {
+   let sticks = 0
+   let cobblestone = 0
+   let picks = 0
+   for (let item of arr) {
+      if (item === "Sticks") {
+         sticks += 1
+      } else if (item === "Cobblestone") {
+         cobblestone += 1
+      } else if (item === "Wood") {
+         sticks += 4
+      }
+   }
+  
+   while (sticks >= 2 && cobblestone >= 3) {
+      sticks -= 2
+      cobblestone -= 3
+      picks += 1 
+   }
+   return picks
+}
+
+console.log(stonePick(["Sticks", "Sticks", "Cobblestone", "Cobblestone", "Cobblestone"]));
+
+// stonePick = 3 cobble + 2 sticks
